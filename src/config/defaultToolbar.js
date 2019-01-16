@@ -149,7 +149,7 @@ export default {
       "rgb(204,204,204)",
       "rgb(65,168,95)",
       "rgb(0,168,133)",
-      "rgb(61,142,185)",
+      "rgb(61,142,185beforeAddLink: undefined)",
       "rgb(41,105,176)",
       "rgb(85,57,130)",
       "rgb(40,50,78)",
@@ -180,7 +180,8 @@ export default {
     defaultTargetOption: "_self",
     options: ["link", "unlink"],
     link: { icon: link, className: undefined, title: undefined },
-    unlink: { icon: unlink, className: undefined, title: undefined }
+    unlink: { icon: unlink, className: undefined, title: undefined },
+    beforeAddLink: undefined
   },
   emoji: {
     icon: emoji,
