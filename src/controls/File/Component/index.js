@@ -197,7 +197,9 @@ class LayoutComponent extends Component {
               htmlFor="file"
               className="rdw-image-modal-upload-option-label"
             >
-              {href || translations['components.controls.image.dropFileText']}
+              <span>
+                {href || translations['components.controls.image.dropFileText']}
+              </span>
             </label>
           </div>
           <input
