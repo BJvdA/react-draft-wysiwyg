@@ -51,9 +51,9 @@ class FileControl extends Component {
     this.signalExpanded = false;
   };
 
-  addFile = url => {
+  addFile = (url, linkTitleParam) => {
     const { editorState, onChange } = this.props;
-    const linkTitle = last(url.split('/'));
+    const linkTitle = linkTitleParam || last(url.split('/'));
 
     let editor = editorState;
     let content = editor
@@ -68,7 +68,14 @@ class FileControl extends Component {
       entityKey
     );
     editor = EditorState.push(editor, content, 'insert-characters');
-    onChange(editor);
+    content = Modifier.insertText(
+      content,
+      editor.getSelection(),
+      ' ',
+      editor.getCurrentInlineStyle(),
+      undefined,
+    );
+    onChange(EditorState.push(editor, content, 'insert-characters'));
     this.doCollapse();
   };
 

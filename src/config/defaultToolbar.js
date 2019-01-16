@@ -19,6 +19,7 @@ import unlink from '../../images/unlink.svg';
 import emoji from '../../images/emoji.svg';
 import embedded from '../../images/embedded.svg';
 import image from '../../images/image.svg';
+import file from '../../images/file.svg';
 import undo from '../../images/undo.svg';
 import redo from '../../images/redo.svg';
 import subscript from '../../images/subscript.svg';
@@ -353,7 +354,7 @@ export default {
     title: undefined
   },
   file: {
-    icon: link,
+    icon: file,
     className: undefined,
     component: undefined,
     popupClassName: undefined,

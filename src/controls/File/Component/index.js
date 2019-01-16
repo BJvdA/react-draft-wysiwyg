@@ -177,71 +177,37 @@ class LayoutComponent extends Component {
         onClick={this.stopPropagation}
       >
         <div className="rdw-image-modal-header">
-          {uploadEnabled && uploadCallback && (
-            <span
-              onClick={this.showFileUploadOption}
-              className="rdw-image-modal-header-option"
-            >
-              {translations['components.controls.image.fileUpload']}
-              <span
-                className={classNames('rdw-image-modal-header-label', {
-                  'rdw-image-modal-header-label-highlighted': uploadHighlighted
-                })}
-              />
-            </span>
-          )}
-          {urlEnabled && (
-            <span
-              onClick={this.showFileURLOption}
-              className="rdw-image-modal-header-option"
-            >
-              {translations['components.controls.image.byURL']}
-              <span
-                className={classNames('rdw-image-modal-header-label', {
-                  'rdw-image-modal-header-label-highlighted': !uploadHighlighted
-                })}
-              />
-            </span>
-          )}
+          <span
+            onClick={this.showFileUploadOption}
+            className="rdw-image-modal-header-option"
+          >
+            {translations['components.controls.image.fileUpload']}
+          </span>
         </div>
-        {uploadHighlighted ? (
-          <div onClick={this.fileUploadClick}>
-            <div
-              onDragEnter={this.onDragEnter}
-              onDragOver={this.stopPropagation}
-              onDrop={this.onFileDrop}
-              className={classNames('rdw-image-modal-upload-option', {
-                'rdw-image-modal-upload-option-highlighted': dragEnter
-              })}
+        <div onClick={this.fileUploadClick}>
+          <div
+            onDragEnter={this.onDragEnter}
+            onDragOver={this.stopPropagation}
+            onDrop={this.onFileDrop}
+            className={classNames('rdw-image-modal-upload-option', {
+              'rdw-image-modal-upload-option-highlighted': dragEnter
+            })}
+          >
+            <label
+              htmlFor="file"
+              className="rdw-image-modal-upload-option-label"
             >
-              <label
-                htmlFor="file"
-                className="rdw-image-modal-upload-option-label"
-              >
-                {href || translations['components.controls.image.dropFileText']}
-              </label>
-            </div>
-            <input
-              type="file"
-              id="file"
-              accept={inputAccept}
-              onChange={this.selectFile}
-              className="rdw-image-modal-upload-option-input"
-            />
+              {href || translations['components.controls.image.dropFileText']}
+            </label>
           </div>
-        ) : (
-          <div className="rdw-image-modal-url-section">
-            <input
-              className="rdw-image-modal-url-input"
-              placeholder={translations['components.controls.image.enterlink']}
-              name="imgSrc"
-              onChange={this.updateValue}
-              onBlur={this.updateValue}
-              value={href}
-            />
-            <span className="rdw-image-mandatory-sign">*</span>
-          </div>
-        )}
+          <input
+            type="file"
+            id="file"
+            accept={inputAccept}
+            onChange={this.selectFile}
+            className="rdw-image-modal-upload-option-input"
+          />
+        </div>
         {altConf.present && (
           <div className="rdw-image-modal-size">
             <span className="rdw-image-modal-alt-lbl">Title</span>
