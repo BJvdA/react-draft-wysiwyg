@@ -8,10 +8,10 @@ import LayoutComponent from './Component';
 class FileControl extends Component {
   static propTypes = {
     editorState: PropTypes.object.isRequired,
-    onChange: PropTypes.func.isRequired
-    // modalHandler: PropTypes.object,
-    // config: PropTypes.object,
-    // translations: PropTypes.object,
+    onChange: PropTypes.func.isRequired,
+    modalHandler: PropTypes.object,
+    config: PropTypes.object,
+    translations: PropTypes.object,
   };
 
   state = {

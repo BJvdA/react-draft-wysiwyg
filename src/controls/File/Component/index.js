@@ -5,14 +5,14 @@ import Option from '../../../components/Option';
 import Spinner from '../../../components/Spinner';
 
 class LayoutComponent extends Component {
-  // static propTypes = {
-  //   expanded: PropTypes.bool,
-  //   onExpandEvent: PropTypes.func,
-  //   doCollapse: PropTypes.func,
-  //   onChange: PropTypes.func,
-  //   config: PropTypes.object,
-  //   translations: PropTypes.object,
-  // };
+  static propTypes = {
+    expanded: PropTypes.bool,
+    onExpandEvent: PropTypes.func,
+    doCollapse: PropTypes.func,
+    onChange: PropTypes.func,
+    config: PropTypes.object,
+    translations: PropTypes.object,
+  };
 
   state = {
     href: '',

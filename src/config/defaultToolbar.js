@@ -352,6 +352,16 @@ export default {
     },
     title: undefined
   },
+  file: {
+    icon: link,
+    className: undefined,
+    component: undefined,
+    popupClassName: undefined,
+    urlEnabled: true,
+    uploadEnabled: true,
+    uploadCallback: undefined,
+    title: undefined
+  },
   remove: {
     icon: eraser,
     className: undefined,
