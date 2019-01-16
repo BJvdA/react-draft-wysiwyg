@@ -288,7 +288,7 @@ class LayoutComponent extends Component {
 
   render() {
     const {
-      config: { className, title },
+      config: { className, title, icon },
       expanded,
       onExpandEvent,
       translations
