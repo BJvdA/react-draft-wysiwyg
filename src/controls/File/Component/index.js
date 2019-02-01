@@ -22,7 +22,8 @@ class LayoutComponent extends Component {
     dragEnter: false,
     uploadHighlighted:
       this.props.config.uploadEnabled && !!this.props.config.uploadCallback,
-    showImageLoading: false
+    showImageLoading: false,
+    linkTargetOption: this.props.config.defaultTargetOption
   };
 
   componentWillReceiveProps(props) {
@@ -34,7 +35,8 @@ class LayoutComponent extends Component {
         dragEnter: false,
         uploadHighlighted:
           this.props.config.uploadEnabled && !!this.props.config.uploadCallback,
-        showImageLoading: false
+        showImageLoading: false,
+        linkTargetOption: this.props.config.defaultTargetOption
       });
     } else if (
       props.config.uploadCallback !== this.props.config.uploadCallback ||
@@ -88,9 +90,9 @@ class LayoutComponent extends Component {
   };
 
   addFileFromState = () => {
-    const { href, title } = this.state;
+    const { href, title, linkTargetOption } = this.state;
     const { onChange } = this.props;
-    onChange(href, title);
+    onChange(href, title, linkTargetOption);
   };
 
   showFileURLOption = () => {
@@ -103,6 +105,12 @@ class LayoutComponent extends Component {
     this.setState(prevState => ({
       showImageLoading: !prevState.showImageLoading
     }));
+  };
+
+  updateTargetOption: Function = (event: Object): void => {
+    this.setState({
+      linkTargetOption: event.target.checked ? '_blank' : '_self',
+    });
   };
 
   updateValue = event => {
@@ -157,6 +165,7 @@ class LayoutComponent extends Component {
       title,
       uploadHighlighted,
       showFileLoading,
+      linkTargetOption,
       dragEnter
     } = this.state;
     const {
@@ -226,6 +235,16 @@ class LayoutComponent extends Component {
             </span>
           </div>
         )}
+        <label className="rdw-link-modal-target-option" htmlFor="openLinkInNewWindow">
+          <input
+            id="openLinkInNewWindow"
+            type="checkbox"
+            defaultChecked={linkTargetOption === '_blank'}
+            value="_blank"
+            onChange={this.updateTargetOption}
+          />
+          <span>{translations['components.controls.link.linkTargetOption']}</span>
+        </label>
         <span className="rdw-image-modal-btn-section">
           <button
             type="button"

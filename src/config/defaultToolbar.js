@@ -361,6 +361,7 @@ export default {
     urlEnabled: true,
     uploadEnabled: true,
     uploadCallback: undefined,
+    defaultTargetOption: "_blank",
     title: undefined
   },
   remove: {

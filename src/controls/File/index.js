@@ -51,14 +51,14 @@ class FileControl extends Component {
     this.signalExpanded = false;
   };
 
-  addFile = (url, linkTitleParam) => {
+  addFile = (url, linkTitleParam, linkTargetOption) => {
     const { editorState, onChange } = this.props;
     const linkTitle = linkTitleParam || last(url.split('/'));
 
     let editor = editorState;
     let content = editor
       .getCurrentContent()
-      .createEntity('LINK', 'MUTABLE', { url });
+      .createEntity('LINK', 'MUTABLE', { url, targetOption: linkTargetOption });
     const entityKey = content.getLastCreatedEntityKey();
     content = Modifier.replaceText(
       content,
