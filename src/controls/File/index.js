@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { EditorState, Modifier } from 'draft-js';
 import { last } from 'lodash';
+import { getSelectionText } from 'draftjs-utils';
 
 import LayoutComponent from './Component';
 
@@ -31,6 +32,13 @@ class FileControl extends Component {
   onExpandEvent = () => {
     this.signalExpanded = !this.state.expanded;
   };
+
+  getCurrentValues = () => {
+    const { editorState } = this.props;
+    const currentValues = {};
+    currentValues.selectionText = getSelectionText(editorState);
+    return currentValues;
+  }
 
   doExpand = () => {
     this.setState({
@@ -67,14 +75,15 @@ class FileControl extends Component {
       editor.getCurrentInlineStyle(),
       entityKey
     );
-    editor = EditorState.push(editor, content, 'insert-characters');
-    content = Modifier.insertText(
-      content,
-      editor.getSelection(),
-      ' ',
-      editor.getCurrentInlineStyle(),
-      undefined,
-    );
+    // Insert space after link
+    // editor = EditorState.push(editor, content, 'insert-characters');
+    // content = Modifier.insertText(
+    //   content,
+    //   editor.getSelection(),
+    //   ' ',
+    //   editor.getCurrentInlineStyle(),
+    //   undefined,
+    // );
     onChange(EditorState.push(editor, content, 'insert-characters'));
     this.doCollapse();
   };
@@ -82,6 +91,7 @@ class FileControl extends Component {
   render() {
     const { config, translations } = this.props;
     const { expanded } = this.state;
+    const { selectionText } = this.getCurrentValues();
 
     return (
       <LayoutComponent
@@ -92,6 +102,9 @@ class FileControl extends Component {
         onExpandEvent={this.onExpandEvent}
         doExpand={this.doExpand}
         doCollapse={this.doCollapse}
+        currentState={{
+          selectionText
+        }}
       />
     );
   }

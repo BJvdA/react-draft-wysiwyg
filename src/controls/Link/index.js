@@ -157,29 +157,30 @@ class Link extends Component {
       .createEntity('LINK', 'MUTABLE', { url: linkTarget, targetOption: linkTargetOption })
       .getLastCreatedEntityKey();
 
-    let contentState = Modifier.replaceText(
+    const contentState = Modifier.replaceText(
       editorState.getCurrentContent(),
       selection,
       `${linkTitle}`,
       editorState.getCurrentInlineStyle(),
       entityKey,
     );
-    let newEditorState = EditorState.push(editorState, contentState, 'insert-characters');
+    const newEditorState = EditorState.push(editorState, contentState, 'insert-characters');
 
     // insert a blank space after link
-    selection = newEditorState.getSelection().merge({
-      anchorOffset: selection.get('anchorOffset') + linkTitle.length,
-      focusOffset: selection.get('anchorOffset') + linkTitle.length,
-    });
-    newEditorState = EditorState.acceptSelection(newEditorState, selection);
-    contentState = Modifier.insertText(
-      newEditorState.getCurrentContent(),
-      selection,
-      ' ',
-      newEditorState.getCurrentInlineStyle(),
-      undefined,
-    );
-    onChange(EditorState.push(newEditorState, contentState, 'insert-characters'));
+    // selection = newEditorState.getSelection().merge({
+    //   anchorOffset: selection.get('anchorOffset') + linkTitle.length,
+    //   focusOffset: selection.get('anchorOffset') + linkTitle.length,
+    // });
+    // newEditorState = EditorState.acceptSelection(newEditorState, selection);
+    // contentState = Modifier.insertText(
+    //   newEditorState.getCurrentContent(),
+    //   selection,
+    //   ' ',
+    //   newEditorState.getCurrentInlineStyle(),
+    //   undefined,
+    // );
+    // onChange(EditorState.push(newEditorState, contentState, 'insert-characters'));
+    onChange(newEditorState);
     this.doCollapse();
   };
 

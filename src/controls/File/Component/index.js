@@ -13,6 +13,7 @@ class LayoutComponent extends Component {
     onChange: PropTypes.func,
     config: PropTypes.object,
     translations: PropTypes.object,
+    currentState: PropTypes.object
   };
 
   state = {
@@ -30,7 +31,7 @@ class LayoutComponent extends Component {
     if (this.props.expanded && !props.expanded) {
       this.setState({
         href: '',
-        title: '',
+        title: this.props.currentState.selectionText || '',
 
         dragEnter: false,
         uploadHighlighted:
