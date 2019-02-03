@@ -18,7 +18,7 @@ class LayoutComponent extends Component {
 
   state = {
     href: '',
-    title: '',
+    title: this.props.currentState.selectionText || '',
 
     dragEnter: false,
     uploadHighlighted:
@@ -48,6 +48,14 @@ class LayoutComponent extends Component {
           props.config.uploadEnabled && !!props.config.uploadCallback
       });
     }
+  }
+
+  onExpandEvent = () => {
+    const { onExpandEvent, currentState: { selectionText } } = this.props;
+    onExpandEvent();
+    this.setState({
+      title: selectionText || ''
+    });
   }
 
   onDragEnter = event => {
@@ -278,7 +286,6 @@ class LayoutComponent extends Component {
     const {
       config: { className, title, icon },
       expanded,
-      onExpandEvent,
       translations
     } = this.props;
     return (
@@ -291,7 +298,7 @@ class LayoutComponent extends Component {
         <Option
           className={classNames(className)}
           value="unordered-list-item"
-          onClick={onExpandEvent}
+          onClick={this.onExpandEvent}
           title={title || translations['components.controls.image.image']}
         >
           <img src={icon} alt="" />
