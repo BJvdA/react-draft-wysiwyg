@@ -101,6 +101,7 @@ const getVideoComponent = config => class Video extends Component {
       >
         <span className="rdw-image-imagewrapper">
           <video
+            className="rdw-video-videowrapper"
             style={{
               height,
               width,

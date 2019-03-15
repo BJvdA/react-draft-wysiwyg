@@ -366,7 +366,7 @@ export default {
     uploadCallback: undefined,
     inputAccept: "video/mp4,video/mov",
     defaultSize: {
-      height: "auto",
+      height: "400px",
       width: "auto"
     },
     title: undefined

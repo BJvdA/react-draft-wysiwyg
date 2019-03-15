@@ -513,6 +513,9 @@ export default class WysiwygEditor extends Component {
               if (opt === "image" && uploadCallback) {
                 config.uploadCallback = uploadCallback;
               }
+              if (opt === "video" && uploadCallback) {
+                config.uploadCallback = uploadCallback;
+              }
               return <Control key={index} {...controlProps} config={config} />;
             })}
             {toolbarCustomButtons &&

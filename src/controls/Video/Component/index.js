@@ -229,6 +229,9 @@ class LayoutComponent extends Component {
                   { previewVideo && videoSrc
                     ?  (
                       <video
+                        autoPlay
+                        muted
+                        loop
                         className="rdw-image-modal-upload-option-image-preview"
                       >
                         <source src={videoSrc} />
