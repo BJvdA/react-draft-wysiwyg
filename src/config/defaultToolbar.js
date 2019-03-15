@@ -369,7 +369,8 @@ export default {
       height: "400px",
       width: "auto"
     },
-    title: undefined
+    title: undefined,
+    controls: true
   },
   file: {
     icon: file,

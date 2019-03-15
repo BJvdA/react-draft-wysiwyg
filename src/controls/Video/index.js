@@ -52,9 +52,9 @@ class VideoControl extends Component {
     this.signalExpanded = false;
   }
 
-  addVideo: Function = (src: string, height: string, width: string): void => {
+  addVideo: Function = (src: string, height: string, width: string, controls: boolean): void => {
     const { editorState, onChange } = this.props;
-    const entityData = { src, height, width };
+    const entityData = { src, height, width, controls };
     const entityKey = editorState
       .getCurrentContent()
       .createEntity('VIDEO', 'MUTABLE', entityData)

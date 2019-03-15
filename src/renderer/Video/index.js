@@ -84,7 +84,7 @@ const getVideoComponent = config => class Video extends Component {
     const { hovered } = this.state;
     const { isReadOnly, isImageAlignmentEnabled } = config;
     const entity = contentState.getEntity(block.getEntityAt(0));
-    const { src, alignment, height, width } = entity.getData();
+    const { src, alignment, height, width, controls } = entity.getData();
 
     return (
       <span
@@ -101,6 +101,7 @@ const getVideoComponent = config => class Video extends Component {
       >
         <span className="rdw-image-imagewrapper">
           <video
+            controls={controls ? "controls" : ""}
             className="rdw-video-videowrapper"
             style={{
               height,

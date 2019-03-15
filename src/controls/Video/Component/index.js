@@ -25,6 +25,7 @@ class LayoutComponent extends Component {
     showVideoLoading: false,
     height: this.props.config.defaultSize.height,
     width: this.props.config.defaultSize.width,
+    controls: this.props.config.controls,
   };
 
   componentWillReceiveProps(props: Object): void {
@@ -36,6 +37,7 @@ class LayoutComponent extends Component {
         showVideoLoading: false,
         height: this.props.config.defaultSize.height,
         width: this.props.config.defaultSize.width,
+        controls: this.props.config.controls,
       });
     } else if (props.config.uploadCallback !== this.props.config.uploadCallback ||
       props.config.uploadEnabled !== this.props.config.uploadEnabled) {
@@ -85,7 +87,7 @@ class LayoutComponent extends Component {
   };
 
   addVideoFromState: Function = (): void => {
-    const { videoSrc, alt } = this.state;
+    const { videoSrc, controls } = this.state;
     let { height, width } = this.state;
     const { onChange } = this.props;
     if (!isNaN(height)) {
@@ -94,7 +96,7 @@ class LayoutComponent extends Component {
     if (!isNaN(width)) {
       width += 'px';
     }
-    onChange(videoSrc, height, width, alt);
+    onChange(videoSrc, height, width, controls);
   };
 
   showVideoURLOption: Function = (): void => {
@@ -173,7 +175,7 @@ class LayoutComponent extends Component {
         urlEnabled,
         previewVideo,
         inputAccept,
-        alt: altConf,
+        alt: altConf
       },
       doCollapse,
       translations,
