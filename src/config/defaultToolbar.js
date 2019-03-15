@@ -370,7 +370,7 @@ export default {
       width: "auto"
     },
     title: undefined,
-    controls: true
+    controls: "controls"
   },
   file: {
     icon: file,
