@@ -46,6 +46,12 @@ module.exports = {
   'components.controls.image.byURL': 'URL',
   'components.controls.image.dropFileText': 'Drop the file or click to upload',
 
+  // Image
+  'components.controls.video.video': 'Video',
+  'components.controls.video.fileUpload': 'File Upload',
+  'components.controls.video.byURL': 'URL',
+  'components.controls.video.dropFileText': 'Drop the file or click to upload',
+
   // Inline
   'components.controls.inline.bold': 'Bold',
   'components.controls.inline.italic': 'Italic',

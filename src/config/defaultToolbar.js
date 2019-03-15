@@ -19,6 +19,7 @@ import unlink from '../../images/unlink.svg';
 import emoji from '../../images/emoji.svg';
 import embedded from '../../images/embedded.svg';
 import image from '../../images/image.svg';
+import video from '../../images/video.svg';
 import file from '../../images/file.svg';
 import undo from '../../images/undo.svg';
 import redo from '../../images/redo.svg';
@@ -347,6 +348,23 @@ export default {
     uploadCallback: undefined,
     inputAccept: "image/gif,image/jpeg,image/jpg,image/png,image/svg",
     alt: { present: false, mandatory: false },
+    defaultSize: {
+      height: "auto",
+      width: "auto"
+    },
+    title: undefined
+  },
+  video: {
+    icon: video,
+    className: undefined,
+    component: undefined,
+    popupClassName: undefined,
+    urlEnabled: true,
+    uploadEnabled: true,
+    previewVideo: false,
+    alignmentEnabled: true,
+    uploadCallback: undefined,
+    inputAccept: "video/mp4,video/mov",
     defaultSize: {
       height: "auto",
       width: "auto"

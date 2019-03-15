@@ -12,6 +12,7 @@ import image from './Image';
 import file from './File';
 import remove from './Remove';
 import history from './History';
+import video from './Video';
 
 module.exports = {
   inline,
@@ -28,4 +29,5 @@ module.exports = {
   file,
   remove,
   history,
+  video,
 };
